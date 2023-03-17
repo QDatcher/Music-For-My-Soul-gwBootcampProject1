@@ -1,0 +1,42 @@
+
+body {
+    background-color: lightcyan;
+    font-size: 48px;
+    display: block;
+  }
+
+  .filters {
+    display: inline-block;
+    border: solid;
+    width: 33%;
+    position: relative;
+    left: 5%;
+  }
+
+  label, select, button {
+    display: block;
+    padding: 8px;
+    margin: 20px;
+    position: relative;
+    left: 15%;
+  }
+
+  #get-results {
+    font-size: 48px;
+  }
+
+  #genres {
+    font-size: 48px;
+  }
+
+  .results {
+    display: inline-block;
+    position: relative;
+    left: 30%;
+    width: 50%;
+  }
+
+  #results-text {
+    border: solid;
+    width: 50%;
+  }
