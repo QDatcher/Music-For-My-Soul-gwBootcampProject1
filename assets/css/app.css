@@ -1,6 +1,6 @@
 
 body {
-    background-color: lightcyan;
+    background-color: rgb(120, 247, 247);
     font-size: 48px;
     display: block;
   }
@@ -30,13 +30,14 @@ body {
   }
 
   .results {
+    border: solid;
     display: inline-block;
     position: relative;
-    left: 30%;
-    width: 50%;
+    left: 60%;
+    /* width: 50%; */
   }
 
-  #results-text {
+  /* #results-text {
     border: solid;
     width: 50%;
-  }
+  } */
