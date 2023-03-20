@@ -13,12 +13,14 @@ body {
     left: 5%;
   }
 
-  label, select, button {
+  button {
+    border: solid;
     display: block;
     padding: 8px;
     margin: 20px;
     position: relative;
     left: 15%;
+    font-size: 15px;
   }
 
   #get-results {
@@ -33,8 +35,8 @@ body {
     border: solid;
     display: inline-block;
     position: relative;
-    left: 60%;
-    /* width: 50%; */
+    left: 35%;
+    margin: 40px;
   }
 
   /* #results-text {
