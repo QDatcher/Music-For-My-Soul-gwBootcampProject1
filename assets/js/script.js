@@ -10,7 +10,9 @@ const getAPI = (url) => {
 
 	.then((response) => {
 		console.log(response)
-		console.log(response.json())})
+		const results = response.json()
+		return results
+	})
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 }
