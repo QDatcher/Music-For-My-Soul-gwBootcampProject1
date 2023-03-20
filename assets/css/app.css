@@ -13,14 +13,34 @@ body {
     left: 5%;
   }
 
-  button {
+  #title-text {
+    position: relative;
+    left: 25%;
+    width: 50%;
+    font-size: 80px;
     border: solid;
-    display: block;
+    border-width: 5px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  
+
+  #get-color {
+    border: solid;
+    display: inline;
     padding: 8px;
     margin: 20px;
     position: relative;
-    left: 15%;
-    font-size: 15px;
+    top: 10%;
+    font-size: 35px;
+  }
+
+  #search-button {
+    border: solid;
+    display: inline-block;
+    padding: 3px;
+    font-size: 35px;
   }
 
   #get-results {
@@ -37,6 +57,52 @@ body {
     position: relative;
     left: 35%;
     margin: 40px;
+    
+  }
+
+  .track-results {
+    font-size: 25px;
+    list-style: none;
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  #track-header {
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  .search-title {
+    text-align: left;
+  }
+
+  #search-text {
+    width: 40%;
+    margin-left: 25px;
+    display: inline;
+  }
+
+  #generated-color {
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  .search-input {
+    width: 33%;
+    position: absolute;
+    top: 500px;
+  }
+
+  #option-split {
+    width: 33%;
+    position: absolute;
+    top: 350px;
+  }
+
+  .random-color {
+    width: 33%;
+    position: absolute;
+    top: 200px;
   }
 
   /* #results-text {
