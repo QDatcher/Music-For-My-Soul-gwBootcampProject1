@@ -1,7 +1,6 @@
 
 body {
-  background-image:linear-gradient(45deg, red, blue, green);
-  background-size: cover;
+  background-color: orchid;
 }
 .thumbnail {
   border: 4px solid #fefefe;
@@ -25,6 +24,7 @@ h1 {
   text-align: center;
   box-shadow: 0 3px 5px black;
   border-radius: 20px;
+  margin: 20px;
 }
 
 h6 {
@@ -71,4 +71,18 @@ input {
 width: 50%;
 position: absolute;
 right: 0;
+}
+
+#generate-color {
+  border: solid;
+  border-color: black;
+  padding: 5px;
+  border-width: 3px;
+}
+
+#lead {
+  text-align: center;
+  font-size: 30px;
+  font-style: italic;
+  margin: 10px;
 }
