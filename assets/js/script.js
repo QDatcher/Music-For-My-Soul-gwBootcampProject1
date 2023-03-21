@@ -2,7 +2,7 @@
 // const sharesSecret = 'c7b73866d4588addbb675a95ce264480';
 var genre = 'country';
 var ourTracks;
-function getAPI(url) {
+function getTracksAPI(url) {
   return fetch(url)
     .then(function (response) {
       return response.json();
@@ -25,21 +25,48 @@ function getAPI(url) {
 var fmAPI = {
   getTracksFromApi: function (randomWord) {
     var topTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + randomWord + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
-    // var tracks = 
-	getAPI(topTracksUrl)
+
+	getTracksAPI(topTracksUrl)
       .then(function (trackList) {
         console.log(trackList);
         ourTracks = trackList;
       });
-	// return tracks
-  },
-  getGenreTracksFromApi: function (genre) {
-    var genreSearch = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=' + genre + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
-    getAPI(genreSearch);
   }
 };
+// This is the beginning of the color Api
+function getColor() {
+  var randomColor = Math.floor(Math.random()*16777215).toString(16);
+  console.log(randomColor)
+      //Our json fetch url.
+  fetch(`https://www.thecolorapi.com/id?hex=${randomColor}&format=json`)
+    .then(function(response) {
+       return response.json()
+     })
+    .then(function(data) {
+    console.log(data.name.value)
+    var colorName = data.name.value;
+    fmAPI.getTracksFromApi(colorName)
+  });
+    
+}
+getColor()
 
-console.log(fmAPI.getTracksFromApi('rap'))
-// console.log(track)
-// getAPI(fmAPI.topTracksUrl)
-console.log(ourTracks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log(fmAPI.getTracksFromApi('Stromboli'))
+// // console.log(track)
+// // getAPI(fmAPI.topTracksUrl)
+// console.log(ourTracks)
