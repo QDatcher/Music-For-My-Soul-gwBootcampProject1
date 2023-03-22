@@ -34,6 +34,9 @@ var fmAPI = {
         if(trackList.length < 10){
           getColor()
         } else {
+          console.log(trackBox)
+          console.log(trackBox.children)
+          console.log(trackBox.children.length)
           for(let i = 0; i < trackBox.children.length; i++){
             console.log(trackBox.children[i])
           }
