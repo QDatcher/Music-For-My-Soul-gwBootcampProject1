@@ -1,5 +1,6 @@
 // const FMkey = '454e25c0ad504f5f95f870a78830824c';
 // const sharesSecret = 'c7b73866d4588addbb675a95ce264480';
+var generateColor = document.querySelector('#generate-color')
 var trackBox = document.querySelector('#trackBox')
 var genre = 'country';
 var ourTracks;
@@ -25,7 +26,7 @@ function getTracksAPI(url) {
 //   });
 
 var fmAPI = {
-  getTracksFromApi: function (randomWord) {
+  getTracksFromApi: function (randomWord, color) {
     var topTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + randomWord + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
 
     getTracksAPI(topTracksUrl)
@@ -35,13 +36,20 @@ var fmAPI = {
             getColor()
           } else {
             for(let i = 0; i < trackBox.children.length; i++){
-              var colorBox = trackBox.children[i].querySelector('div')
-              var h4 = trackBox.children[i].querySelector('h4')
-              var artist = trackBox.children[i].querySelector('h5')
-              var trackName = trackBox.children[i].querySelector('p')
+              var track = trackList[i]
+              var colorBoxDiv = trackBox.children[i].querySelector('div')
+              var h4Div = trackBox.children[i].querySelector('h4')
+              var artistDiv = trackBox.children[i].querySelector('h5')
+              var trackNameDiv = trackBox.children[i].querySelector('p')
 
-              console.log(trackName)
-              console.log(trackBox.children[i])
+              var artistName = track.artist.name;
+              var trackName = track.name;
+              
+              
+              artistDiv.textContent = artistName;
+              trackNameDiv.textContent = trackName;
+              h4Div.textContent = randomWord;
+              colorBoxDiv.style.backgroundColor = '#' + color;
             }
           }
         });
@@ -63,11 +71,11 @@ function getColor() {
     .then(function(data) {
     console.log(data.name.value)
     var colorName = data.name.value;
-    fmAPI.getTracksFromApi(colorName)
+    fmAPI.getTracksFromApi(colorName, randomColor)
   });
     
 }
-getColor()
+
 
 
 function generateArtists(){
@@ -75,7 +83,7 @@ function generateArtists(){
 }
 
 
-
+generateColor.addEventListener('click', getColor)
 console.log(trackBox.children)
 
 
