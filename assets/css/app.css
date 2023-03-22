@@ -12,7 +12,7 @@ body {
     position: relative;
 }
 .color-container {
-  background-color: red;
+  background-color: orchid;
   display: inline-block;
   vertical-align: middle;
   height: 150px;
@@ -50,9 +50,12 @@ button {
   grid-template-columns: auto auto auto auto;
   gap: 10px;
   float: right;
-  background-color: darkgray;
+  background-color:antiquewhite;
   padding: 10px;
   text-align: right;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 3px 5px black;
 }
 
 .grid-container > div {
@@ -65,7 +68,9 @@ input {
   display: flex;
 }
 #results {
-  text-align: center;
+  display: block;
+  background: -moz-radial-gradient(antiquewhite);
+
 }
 #results-container {
 width: 50%;
@@ -74,10 +79,13 @@ right: 0;
 }
 
 #generate-color {
+  display: flex;
   border: solid;
   border-color: black;
   padding: 5px;
   border-width: 3px;
+  margin: 10px;
+  float: left;
 }
 
 #lead {
@@ -85,4 +93,14 @@ right: 0;
   font-size: 30px;
   font-style: italic;
   margin: 10px;
+}
+#info-text {
+  display: block;
+  max-width: 20%;
+  padding: 10px;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 3px 5px;
+float: left;
 }
