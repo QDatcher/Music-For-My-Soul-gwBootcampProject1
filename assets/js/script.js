@@ -28,20 +28,27 @@ var fmAPI = {
   getTracksFromApi: function (randomWord) {
     var topTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + randomWord + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
 
-	getTracksAPI(topTracksUrl)
-      .then(function (trackList) {
-        console.log(trackList);
-        if(trackList.length < 10){
-          getColor()
-        } else {
-          console.log(trackBox)
-          console.log(trackBox.children)
-          console.log(trackBox.children.length)
-          for(let i = 0; i < trackBox.children.length; i++){
-            console.log(trackBox.children[i])
+    getTracksAPI(topTracksUrl)
+        .then(function (trackList) {
+          console.log(trackList);
+          if(trackList.length < 10){
+            getColor()
+          } else {
+            for(let i = 0; i < trackBox.children.length; i++){
+              var colorBox = trackBox.children[i].querySelector('div')
+              var h4 = trackBox.children[i].querySelector('h4')
+              var artist = trackBox.children[i].querySelector('h5')
+              var trackName = trackBox.children[i].querySelector('p')
+
+              console.log(trackName)
+              console.log(trackBox.children[i])
+            }
           }
-        }
-      });
+        });
+  },
+
+  generateArtistBox: function (){
+    
   }
 };
 // This is the beginning of the color Api
