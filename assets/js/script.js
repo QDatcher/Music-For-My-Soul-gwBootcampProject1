@@ -1,5 +1,6 @@
 // const FMkey = '454e25c0ad504f5f95f870a78830824c';
 // const sharesSecret = 'c7b73866d4588addbb675a95ce264480';
+var trackBox = document.querySelector('#trackBox')
 var genre = 'country';
 var ourTracks;
 function getTracksAPI(url) {
@@ -8,6 +9,7 @@ function getTracksAPI(url) {
       return response.json();
     })
     .then(function (data) {
+      console.log(data)
       return data.tracks.track;
     })
     .catch(function (err) {
@@ -29,7 +31,13 @@ var fmAPI = {
 	getTracksAPI(topTracksUrl)
       .then(function (trackList) {
         console.log(trackList);
-        ourTracks = trackList;
+        if(trackList.length < 10){
+          getColor()
+        } else {
+          for(let i = 0; i < trackBox.children.length; i++){
+            console.log(trackBox.children[i])
+          }
+        }
       });
   }
 };
@@ -52,6 +60,13 @@ function getColor() {
 getColor()
 
 
+function generateArtists(){
+  
+}
+
+
+
+console.log(trackBox.children)
 
 
 
@@ -60,13 +75,7 @@ getColor()
 
 
 
-
-
-
-
-
-
-console.log(fmAPI.getTracksFromApi('Stromboli'))
+// console.log(fmAPI.getTracksFromApi('Stromboli'))
 // // console.log(track)
 // // getAPI(fmAPI.topTracksUrl)
 // console.log(ourTracks)
