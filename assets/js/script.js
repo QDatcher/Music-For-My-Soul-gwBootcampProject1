@@ -58,10 +58,10 @@ var fmAPI = {
         });
   },
 
-  generateArtistBox: function (){
-    var
+  // generateArtistBox: function (){
+  //   var
     
-  }
+  // }
 };
 // This is the beginning of the color Api
 function getColor() {
