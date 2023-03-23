@@ -115,3 +115,19 @@ function getColor() {
 
 
 generateColor.addEventListener('click', generateArtists)
+
+
+function showPlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "block";
+  document.getElementById("saved-playlists").style.display = "none";
+  document.getElementById("hide-playlists").style.display = "block";
+  // document.getElementById("results-container").style.display = "none";
+
+}
+
+function hidePlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "none";
+  document.getElementById("saved-playlists").style.display = "block";
+  // document.getElementById("results-container").style.display = "block";
+  document.getElementById("hide-playlists").style.display = "none";
+}
