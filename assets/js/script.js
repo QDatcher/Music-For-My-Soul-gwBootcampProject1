@@ -99,6 +99,7 @@ function getColor() {
 
 
 
+
  function generateArtists(){
   
   for(let i = 0; i < trackBox.children.length; i++){
