@@ -28,13 +28,14 @@ var fmAPI = {
   getTracksFromApi: function (randomWord, color, index) {
     var topTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + randomWord + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
 
+
     getTracksAPI(topTracksUrl)
         .then(function (trackList) {
           console.log(trackList);
           if(trackList.length < 10){
-            getColor().then(function(data){
-              console.log(data)
-              var {colorName, hexVal} = data;
+            getColor().then(function(colorInfo){
+              console.log(colorInfo)
+              var {colorName, hexVal} = colorInfo;
               fmAPI.getTracksFromApi(colorName, hexVal, index)
             })
           } else {
@@ -48,7 +49,6 @@ var fmAPI = {
               var artistName = track.artist.name;
               var trackName = track.name;
               
-              
               artistDiv.textContent = artistName;
               trackNameDiv.textContent = trackName;
               h4Div.textContent = randomWord;
@@ -58,14 +58,28 @@ var fmAPI = {
         });
   },
 
-  // generateArtistBox: function (){
-  //   var
+  generateArtistBox: function (){
+    var container = document.querySelector('<div>');
+    var colorName = document.querySelector('<h4>');
+    var colorBox = document.querySelector('<div>');
+    var artistName = document.querySelector('<h5>');
+    // var trackName
     
-  // }
+  }
 };
 // This is the beginning of the color Api
-function getColor() {
+
+function generateHexVal() {
   var randomColor = Math.floor(Math.random()*16777215).toString(16);
+  if(randomColor.length == 6){
+    return randomColor
+  } else {
+    return '000000';
+  }
+
+}
+function getColor() {
+  var randomColor = generateHexVal()
 
       //Our json fetch url.
   return fetch(`https://www.thecolorapi.com/id?hex=${randomColor}&format=json`)
@@ -74,11 +88,14 @@ function getColor() {
      })
     .then(function(data) {
     var colorName = data.name.value;
-    var info = {colorName:colorName, hexVal:randomColor}
-    return info;
+    var colorInfo = {colorName:colorName, hexVal:randomColor}
+      console.log(randomColor)
+    return colorInfo;
   });
   
 }
+
+
 
 
 
@@ -86,9 +103,9 @@ function getColor() {
   
   for(let i = 0; i < trackBox.children.length; i++){
     
-    getColor().then(function(data){
-      console.log(data)
-      var {colorName, hexVal} = data;
+    getColor().then(function(colorInfo){
+
+      var {colorName, hexVal} = colorInfo;
       fmAPI.getTracksFromApi(colorName, hexVal, i)
     })
   }
@@ -97,17 +114,3 @@ function getColor() {
 
 
 generateColor.addEventListener('click', generateArtists)
-console.log(trackBox.children)
-
-
-
-
-
-
-
-
-// console.log(fmAPI.getTracksFromApi('Stromboli'))
-// // console.log(track)
-// // getAPI(fmAPI.topTracksUrl)
-// console.log(ourTracks)
-console.log(getColor())
