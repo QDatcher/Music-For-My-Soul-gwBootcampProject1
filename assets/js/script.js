@@ -4,6 +4,7 @@ var generateColor = document.querySelector('#generate-color')
 var trackBox = document.querySelector('#trackBox')
 var genre = 'country';
 var ourTracks;
+
 function getTracksAPI(url) {
   return fetch(url)
     .then(function (response) {
@@ -86,6 +87,21 @@ function generateArtists(){
 generateColor.addEventListener('click', getColor)
 console.log(trackBox.children)
 
+
+function showPlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "block";
+  document.getElementById("saved-playlists").style.display = "none";
+  document.getElementById("hide-playlists").style.display = "block";
+  // document.getElementById("results-container").style.display = "none";
+
+}
+
+function hidePlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "none";
+  document.getElementById("saved-playlists").style.display = "block";
+  // document.getElementById("results-container").style.display = "block";
+  document.getElementById("hide-playlists").style.display = "none";
+}
 
 
 

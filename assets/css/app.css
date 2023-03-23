@@ -70,6 +70,7 @@ input {
 #results {
   display: block;
   background: -moz-radial-gradient(antiquewhite);
+  text-align: center;
 
 }
 #results-container {
@@ -82,10 +83,12 @@ right: 0;
   display: flex;
   border: solid;
   border-color: black;
-  padding: 5px;
+  padding: 10px;
   border-width: 3px;
   margin: 10px;
   float: left;
+  font-size: 40px;
+  font-style: italic;
 }
 
 #lead {
@@ -103,5 +106,47 @@ right: 0;
   border-radius: 5px;
   margin: 10px;
   box-shadow: 0 3px 5px;
-float: left;
+  float: left;
 }
+
+h4, h5 {
+  font-size: 20px;
+}
+
+.track {
+  font-size: 20px;
+}
+
+#saved-playlist-container {
+  width: 50%;
+  position: absolute;
+  left: 200px;
+  text-align: center;
+  display: none;
+}
+
+#hide-playlists {
+  position: absolute;
+  left: 0px;
+  top: 350px;
+  display: none;
+  border: solid;
+  padding: 15px;
+  margin: 10px;
+  font-size: 40px;
+  font-style: italic;
+}
+
+#saved-playlists {
+  position: absolute;
+  left: 0px;
+  top: 350px;
+  display: block;
+  border: solid;
+  padding: 15px;
+  margin: 10px;
+  font-size: 40px;
+  font-style: italic;
+}
+
+
