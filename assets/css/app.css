@@ -88,6 +88,13 @@ right: 0;
   float: left;
 }
 
+.save {
+  background-color: aqua;
+}
+.save:hover {
+  background-color: red;
+}
+
 #lead {
   text-align: center;
   font-size: 30px;
