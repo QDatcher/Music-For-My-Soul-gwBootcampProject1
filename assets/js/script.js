@@ -1,9 +1,13 @@
 
 var generateColor = document.querySelector('#generate-color')
 var trackBox = document.querySelector('#trackBox')
+var playlistBox = document.getElementById('playlistBox')
 var showPlaylistButton = document.querySelector('#saved-playlists')
 var hidePlaylistsButton = document.querySelector('#hide-playlists')
-var ourTracks;
+var localStorageTracks = JSON.parse(localStorage.getItem('savedPlaylist'))
+
+
+
 function getTracksAPI(url) {
   return fetch(url)
     .then(function (response) {
@@ -19,6 +23,7 @@ function getTracksAPI(url) {
 
 
 var fmAPI = {
+  savedPlaylist: [],
   getTracksFromApi: function (randomWord, color, index) {
     var topTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + randomWord + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
 
@@ -36,18 +41,18 @@ var fmAPI = {
               var randomTrackNum = Math.floor(Math.random()*trackList.length)
               var track = trackList[randomTrackNum]
               var colorBoxDiv = trackBox.children[index].querySelector('div')
-              var h4Div = trackBox.children[index].querySelector('h4')
-              var artistDiv = trackBox.children[index].querySelector('h5')
-              var trackNameDiv = trackBox.children[index].querySelector('p')
+              var colorName = trackBox.children[index].querySelector('h4')
+              var artistElement = trackBox.children[index].querySelector('h5')
+              var trackNameElement = trackBox.children[index].querySelector('p')
               var saveTrackButton = trackBox.children[index].querySelector('button')
 
               var artistName = track.artist.name;
               var trackName = track.name;
               
               saveTrackButton.addEventListener('click', saveTrack)
-              artistDiv.textContent = artistName;
-              trackNameDiv.textContent = trackName;
-              h4Div.textContent = randomWord;
+              artistElement.textContent = artistName;
+              trackNameElement.textContent = trackName;
+              colorName.textContent = randomWord;
               colorBoxDiv.style.backgroundColor = '#' + color;
             
           }
@@ -105,14 +110,44 @@ function saveTrack(e) {
     colorValue: colorValue
   }
 
-  var currentSave = JSON.parse(localStorage.getItem('savedSongs'))
-  console.log(currentSave)
 
-  var newPlaylist = currentSave.unshift(artistBoxInfo)
-  console.log(newPlaylist)
+  if(fmAPI.savedPlaylist.length == 0 && localStorageTracks !== null){
+    fmAPI.savedPlaylist = fmAPI.savedPlaylist.concat(localStorageTracks)
+    
+  } 
 
-  localStorage.setItem('savedSongs', JSON.stringify(newPlaylist))
+  fmAPI.savedPlaylist.unshift(artistBoxInfo)
+  console.log(fmAPI.savedPlaylist)
+
+  localStorage.setItem('savedSongs', JSON.stringify(fmAPI.savedPlaylist))
   
+}
+
+function loadSavedPlaylist () {
+  var savedArtistBoxes = JSON.parse(localStorage.getItem('savedSongs'));
+  console.log(savedArtistBoxes.length)
+  for(let i = 0; i < playlistBox.children.length; i++){
+
+    console.log(savedArtistBoxes)
+    console.log(savedArtistBoxes[0])
+    console.log(i)
+    console.log(savedArtistBoxes[i])
+    if(savedArtistBoxes[i]){
+      playlistBox.children[i].style.display = 'block';
+      var {colorName, artistName, trackName, colorValue} = savedArtistBoxes;
+      var savedColorBoxDiv = playlistBox.children[i].querySelector('div')
+      var savedColorName = playlistBox.children[i].querySelector('h4')
+      var savedArtist = playlistBox.children[i].querySelector('h5')
+      var savedTrackName = playlistBox.children[i].querySelector('p')
+
+      savedColorBoxDiv.style.backgroundColor = colorValue;
+      savedColorName.textContent = colorName;
+      savedArtist.textContent = artistName;
+      savedTrackName.textContent = trackName
+    } else {
+      playlistBox.children[i].style.display = 'none'
+    }
+  }
 }
 
 
@@ -140,6 +175,7 @@ function showPlaylists() {
   document.getElementById("results-container").style.display = "none";
   showPlaylistButton.style.display = 'none';
   hidePlaylistsButton.style.display = 'block';
+  loadSavedPlaylist()
 }
 
 function hidePlaylists() {
