@@ -113,11 +113,12 @@ right: 0;
   border-radius: 5px;
   margin: 10px;
   box-shadow: 0 3px 5px;
-float: left;
+  float: left;
 }
 
 h4, h5 {
   font-size: 20px;
+  display: inline;
 }
 
 .track {
@@ -150,4 +151,8 @@ h4, h5 {
   margin: 10px;
   font-size: 40px;
   font-style: italic;
+}
+
+.intro-section {
+  text-align: center;
 }
