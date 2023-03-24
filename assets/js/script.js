@@ -108,10 +108,10 @@ function saveTrack(e) {
   var currentSave = JSON.parse(localStorage.getItem('savedSongs'))
   console.log(currentSave)
 
-  var newPlaylist = currentSave.unshift(artistBoxInfo)
-  console.log(newPlaylist)
+  // var newPlaylist = currentSave.unshift(artistBoxInfo)
+  // console.log(newPlaylist)
 
-  localStorage.setItem('savedSongs', JSON.stringify(newPlaylist))
+  // localStorage.setItem('savedSongs', JSON.stringify(newPlaylist))
   
 }
 
