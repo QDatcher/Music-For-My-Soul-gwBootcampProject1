@@ -50,7 +50,13 @@ h6 {
   max-width: 100%;
 }
 
-#track {
+.track {
+  text-align: center;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.color {
   text-align: center;
 }
 
@@ -87,11 +93,18 @@ input {
 }
 #results {
   display: block;
+  text-align: center;
   background: -moz-radial-gradient(antiquewhite);
+  background-color: antiquewhite;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px;
+  font-weight: bold;
 
 }
 #results-container {
-width: 30%;
+width: 60%;
 position: absolute;
 right: 0;
 }
@@ -138,9 +151,6 @@ h4, h5 {
   font-size: 20px;
 }
 
-.track {
-  font-size: 20px;
-}
 
 #saved-playlist-container {
   width: 30%;
