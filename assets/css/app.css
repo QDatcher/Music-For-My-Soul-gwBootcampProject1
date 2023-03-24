@@ -67,7 +67,8 @@ button {
  position: relative;
 }
 .grid-container {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   grid-template-columns: auto auto auto auto;
   grid-auto-rows: minmax(100px, auto);
   gap: 10px;
@@ -82,7 +83,7 @@ button {
 }
 
 .grid-container > div {
-  text-align:right;
+  text-align: right;
   font-size: 10px;
   color: black;
 }
@@ -92,6 +93,7 @@ input {
 }
 #results {
   display: block;
+  flex-wrap: wrap;
   text-align: center;
   background: -moz-radial-gradient(antiquewhite);
   background-color: antiquewhite;
@@ -116,9 +118,10 @@ input {
 }
 
 #results-container {
-width: 60%;
-position: absolute;
-right: 0;
+  flex-wrap: wrap;
+  width: 60%;
+  position: absolute;
+  right: 0;
 }
 
 #generate-color {
@@ -180,7 +183,8 @@ h4, h5 {
 
 #saved-playlists {
   background-image: linear-gradient(-45deg,purple, yellow, orchid);
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   border: solid;
   padding: 10px;
   margin: 10px;
@@ -192,4 +196,76 @@ h4, h5 {
   width: 50%;
   align-items: center;
   background-color: antiquewhite;
+}
+
+@media screen and (max-width: 1200px) {
+  #saved-playlists {
+    background-image: linear-gradient(-45deg,purple, yellow, orchid);
+    display: flex;
+    flex-wrap: wrap;
+    border: solid;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-style: italic;
+  }
+
+  #hide-playlists {
+    background-image: linear-gradient(-45deg,purple, yellow, orchid);
+    display: none;
+    border: solid;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-style: italic;
+  }
+
+  #generate-color {
+    background-image: linear-gradient(-45deg,purple, yellow, orchid);
+    display: flex;
+    border: solid;
+    border-color: black;
+    padding: 10px;
+    border-width: 3px;
+    margin: 10px;
+    float: left;
+    font-size: 20px;
+    font-style: italic;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  #saved-playlists {
+    background-image: linear-gradient(-45deg,purple, yellow, orchid);
+    display: flex;
+    flex-wrap: wrap;
+    border: solid;
+    padding: 10px;
+    margin: 10px;
+    font-size: 10px;
+    font-style: italic;
+  }
+
+  #hide-playlists {
+    background-image: linear-gradient(-45deg,purple, yellow, orchid);
+    display: none;
+    border: solid;
+    padding: 10px;
+    margin: 10px;
+    font-size: 10px;
+    font-style: italic;
+  }
+
+  #generate-color {
+    background-image: linear-gradient(-45deg,purple, yellow, orchid);
+    display: flex;
+    border: solid;
+    border-color: black;
+    padding: 10px;
+    border-width: 3px;
+    margin: 10px;
+    float: left;
+    font-size: 10px;
+    font-style: italic;
+  }
 }
