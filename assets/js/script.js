@@ -1,5 +1,6 @@
 // const FMkey = '454e25c0ad504f5f95f870a78830824c';
 // const sharesSecret = 'c7b73866d4588addbb675a95ce264480';
+localStorage.setItem('savedSongs', [])
 var generateColor = document.querySelector('#generate-color')
 var trackBox = document.querySelector('#trackBox')
 var genre = 'country';
@@ -17,12 +18,6 @@ function getTracksAPI(url) {
     });
 }
 
-// getAPI(
-//   'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=grey&api_key=454e25c0ad504f5f95f870a78830824c&format=json'
-// )
-//   .then(function (trackList) {
-//     console.log(trackList);
-//   });
 
 var fmAPI = {
   getTracksFromApi: function (randomWord, color, index) {
@@ -45,10 +40,12 @@ var fmAPI = {
               var h4Div = trackBox.children[index].querySelector('h4')
               var artistDiv = trackBox.children[index].querySelector('h5')
               var trackNameDiv = trackBox.children[index].querySelector('p')
+              var saveTrackButton = trackBox.children[index].querySelector('button')
 
               var artistName = track.artist.name;
               var trackName = track.name;
               
+              saveTrackButton.addEventListener('click', saveTrack)
               artistDiv.textContent = artistName;
               trackNameDiv.textContent = trackName;
               h4Div.textContent = randomWord;
@@ -90,12 +87,34 @@ function getColor() {
     var colorName = data.name.value;
     var colorInfo = {colorName:colorName, hexVal:randomColor}
       console.log(randomColor)
-    return colorInfo;
+      return colorInfo;
   });
   
 }
 
 
+function saveTrack(e) {
+  var container = e.target.parentElement
+  var colorName = container.querySelector('h4').textContent;
+  var artistName = container.querySelector('h5').textContent;
+  var trackName = container.querySelector('p').textContent;
+  var colorValue = container.querySelector('div').style.backgroundColor;
+  var artistBoxInfo = {
+    colorName: colorName,
+    artistName: artistName,
+    trackName: trackName,
+    colorValue: colorValue
+  }
+
+  var currentSave = JSON.parse(localStorage.getItem('savedSongs'))
+  console.log(currentSave)
+
+  var newPlaylist = currentSave.unshift(artistBoxInfo)
+  console.log(newPlaylist)
+
+  localStorage.setItem('savedSongs', JSON.stringify(newPlaylist))
+  
+}
 
 
 
@@ -114,3 +133,19 @@ function getColor() {
 
 
 generateColor.addEventListener('click', generateArtists)
+
+
+function showPlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "block";
+  document.getElementById("saved-playlists").style.display = "none";
+  document.getElementById("hide-playlists").style.display = "block";
+  // document.getElementById("results-container").style.display = "none";
+
+}
+
+function hidePlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "none";
+  document.getElementById("saved-playlists").style.display = "block";
+  // document.getElementById("results-container").style.display = "block";
+  document.getElementById("hide-playlists").style.display = "none";
+}
