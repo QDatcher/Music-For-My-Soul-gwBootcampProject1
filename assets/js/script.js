@@ -1,9 +1,8 @@
-// const FMkey = '454e25c0ad504f5f95f870a78830824c';
-// const sharesSecret = 'c7b73866d4588addbb675a95ce264480';
-localStorage.setItem('savedSongs', [])
+
 var generateColor = document.querySelector('#generate-color')
 var trackBox = document.querySelector('#trackBox')
-var genre = 'country';
+var showPlaylistButton = document.querySelector('#saved-playlists')
+var hidePlaylistsButton = document.querySelector('#hide-playlists')
 var ourTracks;
 function getTracksAPI(url) {
   return fetch(url)
@@ -132,4 +131,23 @@ function saveTrack(e) {
 }
 
 
+
+
+
+function showPlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "block";
+  document.getElementById("results-container").style.display = "none";
+  showPlaylistButton.style.display = 'none';
+  hidePlaylistsButton.style.display = 'block';
+}
+
+function hidePlaylists() {
+  document.getElementById("saved-playlist-container").style.display = "none";
+  document.getElementById("results-container").style.display = "block";
+  showPlaylistButton.style.display = 'block';
+  hidePlaylistsButton.style.display = 'none';
+}
+
+showPlaylistButton.addEventListener('click', showPlaylists)
+hidePlaylistsButton.addEventListener('click', hidePlaylists)
 generateColor.addEventListener('click', generateArtists)
