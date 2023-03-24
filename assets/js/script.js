@@ -118,6 +118,7 @@ function saveTrack(e) {
 
 
  function generateArtists(){
+  hidePlaylists();
   
   for(let i = 0; i < trackBox.children.length; i++){
     

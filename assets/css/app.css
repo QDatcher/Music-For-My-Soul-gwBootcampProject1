@@ -1,4 +1,3 @@
-
 body {
   background-color: orchid;
 }
@@ -103,6 +102,19 @@ input {
   font-weight: bold;
 
 }
+
+#playlists {
+  display: block;
+  text-align: center;
+  background: -moz-radial-gradient(antiquewhite);
+  background-color: antiquewhite;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px;
+  font-weight: bold;
+}
+
 #results-container {
 width: 60%;
 position: absolute;
@@ -150,10 +162,9 @@ h4, h5 {
 
 
 #saved-playlist-container {
-  width: 30%;
+  width: 60%;
   position: absolute;
-  left: 600px;
-  text-align: center;
+  right: 0;
   display: none;
 }
 
