@@ -87,7 +87,6 @@ function getColor() {
   
 }
 
-
 function saveTrack(e) {
   var container = e.target.parentElement
   var colorName = container.querySelector('h4').textContent;
@@ -101,8 +100,9 @@ function saveTrack(e) {
     colorValue: colorValue
   }
 
+  console.log(localStorageTracks)
 
-  if(fmAPI.savedPlaylist.length == 0 && localStorageTracks !== null){
+  if(fmAPI.savedPlaylist.length < 1 && localStorageTracks != null){
     fmAPI.savedPlaylist = fmAPI.savedPlaylist.concat(localStorageTracks)
     
   } 
@@ -110,21 +110,17 @@ function saveTrack(e) {
   fmAPI.savedPlaylist.unshift(artistBoxInfo)
   
 
-  localStorage.setItem('savedSongs', JSON.stringify(fmAPI.savedPlaylist))
+  localStorage.setItem('savedPlaylist', JSON.stringify(fmAPI.savedPlaylist))
   
 }
 
 function loadSavedPlaylist () {
-  var savedArtistBoxes = JSON.parse(localStorage.getItem('savedSongs'));
-  console.log(savedArtistBoxes)
-  for(let i = 0; i < playlistBox.children.length; i++){
+  var savedArtistBoxes = JSON.parse(localStorage.getItem('savedPlaylist'));
 
-    var num =2;
-    console.log(savedArtistBoxes[i])
-    console.log(savedArtistBoxes[num])
+  for(let i = 0; i < playlistBox.children.length; i++){
     if(savedArtistBoxes[i]){
       playlistBox.children[i].style.display = 'block';
-      var {colorName, artistName, trackName, colorValue} = savedArtistBoxes;
+      var {colorName, artistName, trackName, colorValue} = savedArtistBoxes[i];
       var savedColorBoxDiv = playlistBox.children[i].querySelector('div')
       var savedColorName = playlistBox.children[i].querySelector('h4')
       var savedArtist = playlistBox.children[i].querySelector('h5')
@@ -155,10 +151,6 @@ function loadSavedPlaylist () {
   }
   
 }
-
-
-
-
 
 function showPlaylists() {
   document.getElementById("saved-playlist-container").style.display = "block";
