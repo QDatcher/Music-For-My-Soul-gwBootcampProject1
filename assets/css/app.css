@@ -1,6 +1,9 @@
+/* sets page background color */
 body {
   background-color: orchid;
 }
+
+/* sets attributes*/
 .thumbnail {
   border: 4px solid #fefefe;
     box-shadow: 0 0 0 1px rgb(10 10 10 / 20%);
@@ -10,6 +13,8 @@ body {
     border-radius: 0;
     position: relative;
 }
+
+/* sets attributes of generated color section */
 .color-container {
   background-color: orchid;
   display: inline-block;
@@ -18,17 +23,25 @@ body {
   width: 150px;
 }
 
+/* sets font size of h5 tags to small and positions them relative center */
 h5 {
   font-size: small;
   text-align: center;
 }
 
+/* makes the heart click tip italic */
+#heart-click {
+  font-style: italic;
+}
+
+/* sets font size and alignment of color name text */
 #color {
   font-size: medium;
   text-align: center;
   width: 150px;
 }
 
+/* aligns h1 tags center and sets visual attributes for distinguishment */
 h1 {
   text-align: center;
   box-shadow: 0 3px 5px black;
@@ -38,30 +51,34 @@ h1 {
   font-weight: bold;
 }
 
+/* aligns h6 tags center with thin black border */
 h6 {
   text-align: center;
   border-color: 1 px solid black;
 }
 
-
+/* sets display properties, width, and alignment of grid columns */
 .column {
   display: inline-block;
   max-width: 100%;
   text-align: center;
 }
 
+/* sets font size, weight, and alignment of track text */
 .track {
   text-align: center;
   font-weight: bold;
   font-size: medium;
 }
 
+/* sets alignment of color element to center */
 .color {
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
+/* gives buttons "flex" property */
 button {
   display: flex;
 }
@@ -69,6 +86,8 @@ button {
 #pick-genre {
  position: relative;
 }
+
+/* creates grid for results/saved songs and colors */
 .grid-container {
   display: grid;
   flex: auto;
@@ -85,6 +104,7 @@ button {
   grid-column-gap: 100px;
 }
 
+/* sets grid containers to "flex" property and sets font attributes */
 .grid-container > div {
   flex-wrap: wrap;
   flex: auto;
@@ -96,6 +116,8 @@ button {
 input {
   display: flex;
 }
+
+
 #results {
   display: block;
   text-align: center;
@@ -109,6 +131,7 @@ input {
 
 }
 
+/* sets playlist text and background attributes */
 #playlists {
   display: block;
   text-align: center;
@@ -121,6 +144,7 @@ input {
   font-weight: bold;
 }
 
+/* sets width and flexibility of results container grid */
 #results-container {
   flex-wrap: wrap;
   width: 60%;
@@ -128,6 +152,7 @@ input {
   right: 0;
 }
 
+/* gives generate button a background color, and sets display/position attributes */
 #generate-color {
   background-image: linear-gradient(-45deg,purple, yellow, orchid);
   display: flex;
@@ -141,10 +166,12 @@ input {
   font-style: italic;
 }
 
+/*changes color of heart button when cursor hovers over it */
 .save:hover {
   background-color: orchid;
 }
 
+/* sets attributes of application tagline (under title) */
 #lead {
   text-align: center;
   font-size: 30px;
@@ -152,6 +179,8 @@ input {
   margin: 10px;
   padding: 50px;
 }
+
+/* sets attributes of application directions */
 #info-text {
   display: block;
   max-width: 20%;
@@ -163,11 +192,13 @@ input {
   float: left;
 }
 
+/*sets uniform font size for h4 and h5 tags*/
 h4, h5 {
   font-size: 20px;
 }
 
 
+/*saved song container not displayed until toggled by corresponding button*/
 #saved-playlist-container {
   width: 60%;
   position: absolute;
@@ -176,6 +207,7 @@ h4, h5 {
   flex-wrap: wrap;
 }
 
+/*button appears when "show saved" button is clicked to provide option to go back to results*/
 #hide-playlists {
   background-image: linear-gradient(-45deg,purple, yellow, orchid);
   display: none;
@@ -186,6 +218,7 @@ h4, h5 {
   font-style: italic;
 }
 
+/*displayed by default, replaced with "hide saved" button when "show saved" is clicked*/
 #saved-playlists {
   background-image: linear-gradient(-45deg,purple, yellow, orchid);
   display: block;
@@ -202,6 +235,9 @@ h4, h5 {
   background-color: antiquewhite;
 }
 
+/* below sections allow webpage to be responsive to different screen sizes */
+
+/*grid drops to 3 columns and button font size decreases when screen size is less than 1240 pixels*/
 @media screen and (max-width: 1240px) {
   #hide-playlists {
     background-image: linear-gradient(-45deg,purple, yellow, orchid);
@@ -253,6 +289,7 @@ h4, h5 {
   }
 }
 
+/*grid drops to 2 columns and button font size decreases again when screen size is less than 956 pixels*/
 @media screen and (max-width: 956px) {
   .grid-container {
     display: grid;
@@ -271,6 +308,7 @@ h4, h5 {
   }
 }
 
+/*grid drops to 1 column and button font size decreases even more when screen size is less than 613 pixels*/
 @media screen and (max-width: 613px) {
   .grid-container {
     display: grid;
