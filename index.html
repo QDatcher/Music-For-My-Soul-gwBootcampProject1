@@ -5,100 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music for my Soul</title>
+
+    <!-- Links both stylesheets to HTML -->
     <link rel="stylesheet" href="./assets/css/foundation.css">
     <link rel="stylesheet" href="./assets/css/app.css">
     
 </head>
 <body>
+    <!-- Gives title text and tagline for application -->
     <div>
         <h1 id="website-title">"Music for my Soul"</h1>
         <h4 id="lead">This webpage will generate a music tracklist based on a randomly generated color and its associated word</h4>
     </div>
-
+    <!-- Creates info snippet and action buttons for application -->
     <div id="info-text">
         <p>Generate playlists based on emotions and colors, since good music is always a captivating mood-booster</p>
+        <p id="heart-click">--Click the Heart icon to save a song--</p>
         <button id="generate-color">Generate Colors</button>
-        <button id="saved-playlists">See Saved Playlists</button>
-        <button id="hide-playlists">Hide Saved Playlists</button>
+        <button id="saved-playlists">See Saved Songs</button>
+        <button id="hide-playlists">Hide Saved Songs</button>
     </div>
 
     
-
+<!--creates section for results grid and supplemental information-->
 <section id="results-container">
-    <h3 id="results">Your Results</h3>
-
+    <h3 id="results">Your Results:</h3>
+<!-- creates div for actual grid of results -->
     <div class="grid-container" id="trackBox">
+
+        <!-- each div class column creates a new column section for each generated color/track result -->
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>    
 
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>    
 
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>     
 
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>    
 
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>     
 
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>     
 
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>    
 
         <div class="column">
-            <h4 class="color">placeholder</h4>
+            <h4 class="color">Color</h4>
             <div class="color-container"></div>
             <h5>Artist</h5>
-            <p class="track">track name</p>
+            <p class="track">Track Name</p>
             <button class="save">&hearts;</button>
         </div>   
     </div> 
 </section> 
 
+<!-- creates section for saved songs and supplemental information -->
 <section id="saved-playlist-container">
     <h3 id="playlists">Your Most Recently Saved Songs:</h3>
-
+<!-- creates grid for saved songs -->
     <div class="grid-container" id="playlistBox">
 
+        <!-- each div class column in this section provides an area for saved songs to be displayed -->
         <div class="column">
             <h4 class="color">Color</h4>
             <div class="color-container"></div>
@@ -157,7 +165,7 @@
     </div> 
 </section>
 
-
+<!-- links javascript file to HTML -->
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
