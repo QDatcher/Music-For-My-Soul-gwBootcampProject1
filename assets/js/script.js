@@ -11,6 +11,7 @@ var localStorageTracks = JSON.parse(localStorage.getItem('savedPlaylist'))
 function getTracksAPI(url) {
   return fetch(url)
     .then(function (response) {
+
       return response.json();
     })
     .then(function (data) {
@@ -31,7 +32,7 @@ var fmAPI = {
     getTracksAPI(topTracksUrl)
         .then(function (trackList) {
           console.log(trackList);
-          if(trackList.length < 10){
+          if(trackList.length < 1){
             getColor().then(function(colorInfo){
               console.log(colorInfo)
               var {colorName, hexVal} = colorInfo;
@@ -57,15 +58,6 @@ var fmAPI = {
             
           }
         });
-  },
-
-  generateArtistBox: function (){
-    var container = document.querySelector('<div>');
-    var colorName = document.querySelector('<h4>');
-    var colorBox = document.querySelector('<div>');
-    var artistName = document.querySelector('<h5>');
-    // var trackName
-    
   }
 };
 // This is the beginning of the color Api
@@ -90,7 +82,6 @@ function getColor() {
     .then(function(data) {
     var colorName = data.name.value;
     var colorInfo = {colorName:colorName, hexVal:randomColor}
-      console.log(randomColor)
       return colorInfo;
   });
   
@@ -117,7 +108,7 @@ function saveTrack(e) {
   } 
 
   fmAPI.savedPlaylist.unshift(artistBoxInfo)
-  console.log(fmAPI.savedPlaylist)
+  
 
   localStorage.setItem('savedSongs', JSON.stringify(fmAPI.savedPlaylist))
   
@@ -125,13 +116,12 @@ function saveTrack(e) {
 
 function loadSavedPlaylist () {
   var savedArtistBoxes = JSON.parse(localStorage.getItem('savedSongs'));
-  console.log(savedArtistBoxes.length)
+  console.log(savedArtistBoxes)
   for(let i = 0; i < playlistBox.children.length; i++){
 
-    console.log(savedArtistBoxes)
-    console.log(savedArtistBoxes[0])
-    console.log(i)
+    var num =2;
     console.log(savedArtistBoxes[i])
+    console.log(savedArtistBoxes[num])
     if(savedArtistBoxes[i]){
       playlistBox.children[i].style.display = 'block';
       var {colorName, artistName, trackName, colorValue} = savedArtistBoxes;
