@@ -10,4 +10,6 @@ This repository contains code for a Music Generator project. This webpage allows
 ![127 0 0 1_5501_index html (3)](https://user-images.githubusercontent.com/122403641/227816000-0bb2e657-4fb0-4af5-b6a0-7b92bd631b7c.png)
 
 
-Deployed Link:
+Deployed Link: https://qdatcher.github.io/Music-For-My-Soul-gwBootcampProject1/
+GitHubRepo: https://github.com/QDatcher/Music-For-My-Soul-gwBootcampProject1
+
