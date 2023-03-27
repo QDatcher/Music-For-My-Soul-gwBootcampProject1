@@ -5,6 +5,9 @@ This repository contains code for a Music Generator project. This webpage allows
 
 ![127 0 0 1_5501_index html (1)](https://user-images.githubusercontent.com/122403641/227815903-81b62022-7a34-453c-bf7c-0e095f43e4c1.png)
 
+![127 0 0 1_5501_index html (2)](https://user-images.githubusercontent.com/122403641/227815979-7d9982b5-7e31-4895-9b15-57ccfd80bda7.png)
+
+![127 0 0 1_5501_index html (3)](https://user-images.githubusercontent.com/122403641/227816000-0bb2e657-4fb0-4af5-b6a0-7b92bd631b7c.png)
 
 
-Deployed Link: **PLACEHOLDER**
+Deployed Link:
