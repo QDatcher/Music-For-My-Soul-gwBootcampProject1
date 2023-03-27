@@ -25,7 +25,7 @@ var fmAPI = {
   //This function takes the name and value or the color verifies if the tracklist we recieve has enough data
   //The function then takes the info and uses the index parameter to update the a specific artistBox with the correlated data
   getTracksFromApi: function (randomWord, color, index) {
-    var topTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + randomWord + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
+    var topTracksUrl = 'https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + randomWord + '&api_key=454e25c0ad504f5f95f870a78830824c&format=json';
 
 
     fmAPI.getTracksAPI(topTracksUrl)
