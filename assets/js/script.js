@@ -47,7 +47,9 @@ var fmAPI = {
               var artistName = track.artist.name;
               var trackName = track.name;
               
+              saveTrackButton.disabled = false;
               saveTrackButton.addEventListener('click', localStorageInfo.saveTrack)
+
               artistElement.textContent = artistName;
               trackNameElement.textContent = trackName;
               colorName.textContent = randomWord;
@@ -97,6 +99,7 @@ var localStorageInfo = {
 
   //This function takes all the relevant info from a an ArtistBox we want to save and pushes it to the localStorage
   saveTrack: function (e) {
+    e.target.disabled = true;
     var container = e.target.parentElement
     var colorName = container.querySelector('h4').textContent;
     var artistName = container.querySelector('h5').textContent;

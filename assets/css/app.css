@@ -22,6 +22,9 @@ h5 {
 #heart-click {
   font-style: italic;
 }
+.save:disabled {
+  color: red;
+}
 
 /* sets font size and alignment of color name text */
 #color {
